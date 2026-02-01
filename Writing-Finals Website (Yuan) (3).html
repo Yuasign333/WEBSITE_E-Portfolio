@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuan Mendoza | AI Engineer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+    
+  
+@media (max-width: 600px) {
+
+  section {
+    padding: 90px 6% 40px;
+  }
+
+  .title-glow {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .visual-element {
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .laptop-mockup {
+    max-width: 90%;
+  }
+
+  .floating-badge {
+    width: 45px;
+    height: 45px;
+  }
+
+  .work-card {
+    min-width: 260px;
+  }
+
+  #about > div > div {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  #about img {
+    margin-left: 0 !important;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+  .hero-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .visual-element {
+    order: -1;
+  }
+
+  .bento-container {
+    grid-template-columns: 1fr;
+  }
+
+  .title-glow {
+    font-size: 3rem;
+  }
+}
+
+        :root {
+            --bg-dark: #0f0c29;
+            --purple-glow: rgba(188, 19, 254, 0.6);
+            --neon-purple: #bc13fe;
+            --soft-lavender: #d1d1ff;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --white: #ffffff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f0c29;
+            color: var(--white);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .bg-animate {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1b1464 0%, #0f0c29 100%);
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            width: 500px; height: 500px;
+            background: var(--purple-glow);
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: -1;
+            animation: move 20s infinite alternate;
+            pointer-events: none;
+        }
+
+        @keyframes move {
+            from { transform: translate(-10%, -10%); }
+            to { transform: translate(20%, 20%); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+            50% { transform: translateY(-30px) scale(1.1); opacity: 0.8; }
+        }
+
+        #about img:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0; width: 100%; padding: 1.2rem 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(15, 12, 41, 0.7);
+            backdrop-filter: blur(15px);
+            z-index: 2000;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .logo { font-weight: 700; font-size: 1.4rem; color: var(--neon-purple); text-shadow: 0 0 10px var(--neon-purple); }
+
+        .nav-links { list-style: none; display: flex; gap: 10px; }
+
+        .nav-link {
+            text-decoration: none; color: var(--white); font-size: 0.85rem;
+            padding: 10px 18px; border-radius: 30px; transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: var(--glass);
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 15px var(--purple-glow);
+            color: var(--neon-purple);
+        }
+
+        section {
+            display: none; padding: 100px 10% 60px;
+            min-height: 100vh; animation: fadeIn 0.8s ease;
+        }
+
+        section.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+
+        .hero-layout {
+            display: grid; grid-template-columns: 1.2fr 0.8fr;
+            align-items: center; gap: 40px; margin-top: 5vh;
+        }
+
+        .title-glow {
+            font-size: 3.8rem; font-weight: 700; line-height: 1.1;
+            margin: 20px 0; background: linear-gradient(to right, #fff, var(--neon-purple));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .highlight-bar {
+            display: inline-block; padding: 5px 15px;
+            background: rgba(188, 19, 254, 0.15); border: 1px solid var(--neon-purple);
+            color: var(--neon-purple); border-radius: 5px; font-weight: 600;
+            font-size: 0.9rem; letter-spacing: 1px;
+        }
+
+        .visual-element {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 450px;
+            padding: 40px;
+        }
+
+        .circle-gradient {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(188, 19, 254, 0.3) 0%, transparent 70%);
+            z-index: 1;
+            animation: pulse 4s infinite alternate;
+        }
+
+        @keyframes pulse { from { transform: scale(1); opacity: 0.3; } to { transform: scale(1.1); opacity: 0.5; } }
+
+        .laptop-mockup {
+            width: 100%;
+            max-width: 520px;
+            z-index: 2;
+            filter: drop-shadow(0 0 30px rgba(188, 19, 254, 0.5));
+            position: relative;
+        }
+
+        .floating-badge {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid #bc13fe;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px;
+            box-shadow: 0 0 15px rgba(188, 19, 254, 0.6);
+            animation: float 4s infinite ease-in-out;
+            z-index: 5;
+        }
+
+        .floating-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .b-1 { top: 8%; left: 25%; animation-delay: 0s; }
+        .b-2 { top: 12%; right: 15%; animation-delay: 1s; }
+        .b-3 { bottom: 18%; left: 20%; animation-delay: 2s; }
+        .b-4 { bottom: 12%; right: 20%; animation-delay: 1.5s; }
+
+        .bento-container {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 20px;
+        }
+
+        .glass-card {
+            background: var(--glass); backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border); border-radius: 24px;
+            padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            transition: 0.4s ease;
+        }
+
+        .glass-card:hover { border-color: var(--neon-purple); transform: translateY(-5px); }
+
+        .tech-badges { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+        .badge {
+            background: rgba(255,255,255,0.05); padding: 8px 16px;
+            border-radius: 12px; border: 1px solid var(--glass-border);
+            font-size: 0.8rem; font-weight: 600;
+        }
+
+        .welcome-footer {
+            display: flex; align-items: center; gap: 20px;
+            margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--glass-border);
+        }
+
+        /* Carousel Styles */
+        #carousel-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            padding: 20px 0;
+            scrollbar-width: none;
+        }
+
+        #carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .work-card {
+            min-width: 400px;
+            snap-align: center;
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        .work-card:hover {
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 25px var(--purple-glow);
+            transform: translateY(-5px);
+        }
+
+        .work-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 15px var(--purple-glow));
+        }
+
+        .work-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .work-card .metric {
+            display: inline-block;
+            background: rgba(188, 19, 254, 0.2);
+            color: var(--neon-purple);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .work-card .tech-stack {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .work-card .tech-stack p {
+            font-size: 0.75rem;
+            color: var(--soft-lavender);
+            margin-bottom: 8px;
+        }
+
+        .work-card .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .work-card .tech-tag {
+            background: rgba(255,255,255,0.05);
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            color: #ccc;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background: rgba(0,0,0,0.7);
+            border: 2px solid var(--neon-purple);
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: 0.3s;
+        }
+
+        .carousel-btn:hover {
+            background: var(--neon-purple);
+            box-shadow: 0 0 20px var(--purple-glow);
+        }
+
+        .carousel-btn.left { left: 10px; }
+        .carousel-btn.right { right: 10px; }
+
+        @media (max-width: 992px) {
+            .hero-layout, .bento-container { grid-template-columns: 1fr; text-align: center; }
+            .visual-element { order: -1; margin-bottom: 50px; }
+            .nav-links { display: none; }
+            .work-card { min-width: 300px; }
+        }
+        @media (max-width: 900px) and (orientation: landscape) {
+
+  .hero-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .title-glow {
+    font-size: 2.5rem;
+  }
+
+  .visual-element {
+    min-height: 300px;
+  }
+}
+@media (hover: none) {
+  .glass-card:hover,
+  .work-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.navbar {
+  z-index: 9999;
+}
+
+.nav-links,
+.nav-link {
+  pointer-events: auto;
+}
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--neon-purple);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 5%;
+    background: rgba(15,12,41,0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    flex-direction: column;
+    padding: 12px;
+    gap: 10px;
+
+    display: none; /* hidden by default */
+  }
+
+  .nav-links.show {
+    display: flex;
+ 
+  }
+}
+
+  }
+}
+
+
+        
+    </style>
+</head>
+<body>
+
+    <div class="bg-animate">
+        <div class="blob"></div>
+    </div>
+    
+    <nav class="navbar">
+        <div class="logo">E-PORTFOLIO</div>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#job-ad" class="nav-link">Job Ad</a></li>
+            <li><a href="#resume" class="nav-link">Resume</a></li>
+            <li><a href="#cover-letter" class="nav-link">Letter</a></li>
+            <li><a href="#videos" class="nav-link">Videos</a></li>
+                        <li><a href="#works" class="nav-link">Works</a></li>
+            <li><a href="#ai-declaration" class="nav-link">AI and Platform Use</a></li>
+            <li><a href="#about" class="nav-link">About Me</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home" class="active">
+            <div class="hero-layout">
+                <div class="hero-text">
+                    <span class="highlight-bar">2026 DIGITAL SUBMISSION</span>
+                    <h1 class="title-glow">Professional Digital <br>Career Portfolio</h1>
+                    <p style="font-size: 1.1rem; color: var(--soft-lavender); max-width: 600px;">
+                        Showcasing professional identity and technical excellence in AI Engineering and Software Development.
+                    </p>
+
+                    <div class="glass-card" style="margin-top: 30px;">
+                        <h2 style="color: var(--neon-purple); margin-bottom: 10px;">Welcome</h2>
+                        <p style="font-size: 0.95rem; line-height: 1.7; color: #ccc;">
+                            This e-portfolio was designed for <strong>Writing I</strong>. It serves as a unified digital space featuring my application to <strong>Yondu Inc.</strong>, including a technical resume, cover letter, and video pitch.
+                        </p>
+                        <div class="welcome-footer">
+                            <div style="font-size: 2rem;">🤖</div>
+                            <p style="font-size: 0.8rem; color: var(--soft-lavender);">Ready for the future of AI Engineering.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visual-element">
+                    <div class="circle-gradient"></div>
+                   
+                    <div class="floating-badge b-1">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                    </div>
+                   
+                    <div class="floating-badge b-2">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">
+                    </div>
+                   
+                    <div class="floating-badge b-3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="LLMs">
+                    </div>
+                   
+                    <div class="floating-badge b-4">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL">
+                    </div>
+                   
+                    <svg class="laptop-mockup" viewBox="0 0 500 350" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="80" y="30" width="340" height="220" rx="8" fill="#1a1a2e" stroke="#bc13fe" stroke-width="3"/>
+                        <rect x="90" y="40" width="320" height="200" rx="4" fill="url(#screenGradient)"/>
+                        <line x1="110" y1="70" x2="200" y2="70" stroke="#bc13fe" stroke-width="2" opacity="0.7"/>
+                        <line x1="110" y1="90" x2="250" y2="90" stroke="#d1d1ff" stroke-width="2" opacity="0.5"/>
+                        <line x1="110" y1="110" x2="180" y2="110" stroke="#bc13fe" stroke-width="2" opacity="0.6"/>
+                        <line x1="110" y1="130" x2="280" y2="130" stroke="#d1d1ff" stroke-width="2" opacity="0.4"/>
+                        <line x1="110" y1="150" x2="220" y2="150" stroke="#bc13fe" stroke-width="2" opacity="0.5"/>
+                        <path d="M 60 250 L 80 250 L 420 250 L 440 250 L 460 280 L 40 280 Z" fill="#2a2a3e" stroke="#bc13fe" stroke-width="2"/>
+                        <rect x="120" y="260" width="260" height="10" rx="2" fill="#1a1a2e" opacity="0.6"/>
+                        <rect x="200" y="265" width="100" height="8" rx="2" fill="#bc13fe" opacity="0.3"/>
+                        <ellipse cx="250" cy="290" rx="200" ry="15" fill="#000" opacity="0.3"/>
+                        <defs>
+                            <linearGradient id="screenGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#302b63;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#0f0c29;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED WORKS SECTION -->
+        <section id="works">
+            <div class="glass-card" style="position: relative; overflow: hidden;">
+                <h2 style="color: var(--neon-purple); margin-bottom: 10px; text-align: center; font-size: 2.5rem;">Featured Works</h2>
+                <p style="text-align: center; color: var(--soft-lavender); margin-bottom: 40px; font-size: 0.95rem;">Production-Ready AI Systems & Technical Solutions</p>
+                
+                <button class="carousel-btn left" onclick="moveCarousel(-1)">❮</button>
+                <button class="carousel-btn right" onclick="moveCarousel(1)">❯</button>
+
+                <div id="carousel-container">
+                    
+                    <!-- Card 1: RAG-Powered Incident Analysis -->
+                    <div class="work-card">
+                        <img src="https://i.imgur.com/xgie5PK.png" alt="RAG System Dashboard">
+                        <h4 style="color: gold;">RAG-Powered Incident Analysis System</h4>
+                        <span class="metric">-70% RCA Time</span>
+                        <p style="font-size: 0.85rem; color: #ccc; line-height: 1.6; margin-top: 10px;">
+                            Developed a Retrieval-Augmented Generation (RAG) pipeline that ingests raw, unstructured system logs and outputs human-readable root cause summaries. Engineers can query: <em>"Why did the database crash at 2 AM?"</em> and receive precise, evidence-backed answers.
+                        </p>
+                        <div class="tech-stack">
+                            <p><strong>AI Tech Stack:</strong></p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">LangChain</span>
+                                <span class="tech-tag">ChromaDB</span>
+                                <span class="tech-tag">GPT-4</span>
+                                <span class="tech-tag">Vector Embeddings</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: NeuralGuard -->
+                    <div class="work-card">
+                        <img src="https://i.imgur.com/kTKY2Bg.png" alt="Anomaly Detection Graph">
+                        <h4 style="color: var(--neon-purple);">NeuralGuard: Predictive Anomaly Detection</h4>
+                        <span class="metric">98% Accuracy</span>
+                        <p style="font-size: 0.85rem; color: #ccc; line-height: 1.6; margin-top: 10px;">
+                            A Machine Learning engine monitoring live data streams for deviations from normal patterns. Utilized Isolation Forest and Autoencoders to flag outliers, reducing system downtime by anticipating failures before they occur.
+                        </p>
+                        <div class="tech-stack">
+                            <p><strong>AI Tech Stack:</strong></p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Scikit-learn</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">Pandas</span>
+                                <span class="tech-tag">Matplotlib</span>
+                                <span class="tech-tag">Isolation Forest</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: SemanticFlow -->
+                    <div class="work-card">
+                        <img src="https://i.imgur.com/18hxsUa.png" alt="Knowledge Base Interface">
+                        <h4 style="color: var(--soft-lavender);">SemanticFlow: Technical Knowledge Base</h4>
+                        <span class="metric">Instant Retrieval</span>
+                        <p style="font-size: 0.85rem; color: #ccc; line-height: 1.6; margin-top: 10px;">
+                            An Intelligent Document Processing (IDP) tool converting static PDFs and course materials into an interactive, searchable knowledge graph. Uses NLP to understand context and cross-reference technical guidelines instantly.
+                        </p>
+                        <div class="tech-stack">
+                            <p><strong>AI Tech Stack:</strong></p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">NLTK</span>
+                                <span class="tech-tag">BERT</span>
+                                <span class="tech-tag">Transformers</span>
+                                <span class="tech-tag">Flask</span>
+                                <span class="tech-tag">Knowledge Graphs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Portfolio Architecture -->
+                    <div class="work-card">
+                        <img src="https://i.imgur.com/CrYwFDs.png." alt="Modern UI Design">
+                        <h4 style="color: gold;">Aesthetic Portfolio Architecture</h4>
+                        <span class="metric">100% Responsive</span>
+                        <p style="font-size: 0.85rem; color: #ccc; line-height: 1.6; margin-top: 10px;">
+                            A high-performance single-page application (SPA) showcasing the synergy between technical AI expertise and modern UI/UX design. Features reactive components, custom JavaScript logic, and Glassmorphism interface for high readability.
+                        </p>
+                        <div class="tech-stack">
+                            <p><strong>AI Tech Stack:</strong></p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">JavaScript ES6+</span>
+                                <span class="tech-tag">Advanced CSS</span>
+                                <span class="tech-tag">Glassmorphism</span>
+                                <span class="tech-tag">Responsive Design</span>
+                                <span class="tech-tag">Animations</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="job-ad">
+            <h2 style="color: var(--neon-purple); margin-bottom: 20px;">Target Job: AI Engineer @ Yondu Inc.</h2>
+            <p style="color: var(--soft-lavender); margin-bottom: 20px;"><strong>Company Overview:</strong> Yondu is a Philippine-based IT solutions company owned by Globe Telecom, known for delivering innovative, scalable technology solutions. The company promotes a growth-oriented culture and encourages continuous innovation.</p>
+           
+            <div class="bento-container">
+                <div class="glass-card">
+                    <h4 style="color: var(--neon-purple);">Job Summary</h4>
+                    <p style="font-size: 0.85rem; line-height: 1.6; color: #ccc;">Responsible for designing, training, evaluating, and deploying machine learning and deep learning models based on business needs. The role involves feature engineering, model experimentation, and close collaboration with data engineers and product managers.</p>
+                </div>
+                <div class="glass-card">
+                    <h4 style="color: var(--neon-purple);">Key Focus Areas</h4>
+                    <ul style="font-size: 0.85rem; line-height: 1.6; color: #ccc; padding-left: 15px;">
+                        <li>Production-grade AI/ML systems</li>
+                        <li>LLMs (Prompt engineering, fine-tuning, embeddings)</li>
+                        <li>MLOps workflows (AWS, Azure, GCP)</li>
+                        <li>Responsible AI & model governance</li>
+                    </ul>
+                </div>
+                <div class="glass-card">
+                    <h4 style="color: var(--neon-purple);">Qualifications</h4>
+                    <p style="font-size: 0.85rem; line-height: 1.6; color: #ccc;">Bachelor's degree in a technical field with at least 2 years of AI/ML experience. Strong proficiency in Python and frameworks like PyTorch, Scikit-learn, and Hugging Face.</p>
+                </div>
+                <div class="glass-card">
+                    <h4 style="color: var(--neon-purple);">Job Ad Screenshot</h4>
+                    <img src="https://i.imgur.com/4dHKT2q.png" alt="Yondu AI Engineer Job Posting" style="width: 100%; border-radius: 15px; border: 1px solid var(--neon-purple);">
+                </div>
+            </div>
+        </section>
+
+        <section id="resume">
+            <div class="glass-card">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <h1 style="letter-spacing: 5px; margin-bottom: 5px;">YUAN MENDOZA</h1>
+                    <p style="color: var(--neon-purple); font-weight: 600; font-size: 1.1rem;">AI Engineer | LLM & Machine Learning Specialist</p>
+                    <p style="font-size: 0.85rem; margin-top: 10px; color: var(--soft-lavender);">
+                        Taguig City, PH | yuanmiguelvmendoza@gmail.com | 09193828957
+                    </p>
+                </div>
+
+                <div style="margin-bottom: 40px;">
+                    <h3 style="border-bottom: 1px solid var(--neon-purple); padding-bottom: 5px; margin-bottom: 15px;">Professional Summary</h3>
+                    <p style="font-size: 0.9rem; line-height: 1.6; color: #ccc;">
+                        AI Engineer specializing in Large Language Models (LLMs) and Machine Learning systems for automation.
+                        Experienced in end-to-end AI workflows, RAG pipelines, and anomaly detection.
+                    </p>
+                </div>
+
+                <div style="margin-bottom: 40px;">
+                    <h3 style="border-bottom: 1px solid var(--neon-purple); padding-bottom: 5px; margin-bottom: 15px;">Key Skills</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        <span class="badge">LLMs & GenAI</span>
+                        <span class="badge">RAG Pipelines</span>
+                        <span class="badge">Prompt Engineering</span>
+                        <span class="badge">Vector DBs</span>
+                        <span class="badge">Python (Pandas/NumPy)</span>
+                        <span class="badge">Docker & Kubernetes</span>
+                        <span class="badge">Anomaly Detection</span>
+                        <span class="badge">Responsible AI</span>
+                    </div>
+                </div>
+
+                <h3 style="border-bottom: 1px solid var(--neon-purple); padding-bottom: 5px; margin-bottom: 25px; font-size: 1.1rem;">Work Experience</h3>
+
+                <div style="margin-bottom: 30px; border-left: 2px solid var(--neon-purple); padding-left: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+                        <h4 style="color: var(--white); font-size: 1rem;">AI / Machine Learning Engineer</h4>
+                        <span style="color: var(--neon-purple); font-size: 0.8rem; font-weight: 600;">Jan 2023 – 2025</span>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--soft-lavender); margin-bottom: 10px;">Academic, Research & Independent Projects</p>
+                    <ul style="font-size: 0.85rem; line-height: 1.6; color: #ccc; padding-left: 15px; list-style-type: circle;">
+                        <li>Designed LLM workflows for incident analysis, RCA, and automated summaries.</li>
+                        <li>Built RAG pipelines integrating logs and SOP documents for contextual responses.</li>
+                        <li>Developed ML models for anomaly detection in infrastructure logs.</li>
+                        <li>Applied embedding generation, chunking, and vector search techniques.</li>
+                    </ul>
+                </div>
+
+                <div style="margin-bottom: 30px; border-left: 2px solid rgba(188, 19, 254, 0.3); padding-left: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+                        <h4 style="color: var(--white); font-size: 1rem;">Machine Learning Developer</h4>
+                        <span style="color: var(--neon-purple); font-size: 0.8rem; font-weight: 600;">Jan 2021 – Dec 2022</span>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--soft-lavender); margin-bottom: 10px;">Open-Source & Freelance Projects</p>
+                    <ul style="font-size: 0.85rem; line-height: 1.6; color: #ccc; padding-left: 15px; list-style-type: circle;">
+                        <li>Implemented supervised and unsupervised models for predictive analysis tasks.</li>
+                        <li>Conducted data preprocessing, feature engineering, and hyperparameter tuning.</li>
+                        <li>Utilized Scikit-Learn, TensorFlow, and PyTorch for model training.</li>
+                    </ul>
+                </div>
+
+                <div style="margin-bottom: 40px; border-left: 2px solid rgba(188, 19, 254, 0.3); padding-left: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+                        <h4 style="color: var(--white); font-size: 1rem;">IT / Data Analytics Intern</h4>
+                        <span style="color: var(--neon-purple); font-size: 0.8rem; font-weight: 600;">June 2020 – Dec 2020</span>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--soft-lavender); margin-bottom: 10px;">Academic Internship & Practicum</p>
+                    <ul style="font-size: 0.85rem; line-height: 1.6; color: #ccc; padding-left: 15px; list-style-type: circle;">
+                        <li>Assisted in data cleaning and analysis using Python and SQL.</li>
+                        <li>Supported system monitoring and generated operational reports.</li>
+                    </ul>
+                </div>
+
+                <h3 style="border-bottom: 1px solid var(--neon-purple); padding-bottom: 5px; margin-bottom: 25px; font-size: 1.1rem;">Selected Projects</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px;">
+                    <div class="glass-card" style="padding: 20px; border-radius: 15px; background: rgba(255, 255, 255, 0.05);">
+                        <h4 style="color: var(--neon-purple); font-size: 0.95rem; margin-bottom: 10px;">Incident Analysis System</h4>
+                        <p style="font-size: 0.8rem; color: #ccc;">Built AI system for RCA insights using semantic retrieval and LLMs.</p>
+                    </div>
+                    <div class="glass-card" style="padding: 20px; border-radius: 15px; background: rgba(255, 255, 255, 0.05);">
+                        <h4 style="color: var(--neon-purple); font-size: 0.95rem; margin-bottom: 10px;">Anomaly Detection Model</h4>
+                        <p style="font-size: 0.8rem; color: #ccc;">Trained ML models to identify abnormal behavior in system logs.</p>
+                    </div>
+                </div>
+
+                <h3 style="border-bottom: 1px solid var(--neon-purple); padding-bottom: 5px; margin-bottom: 25px; font-size: 1.1rem;">Education</h3>
+               
+                <div style="margin-bottom: 30px; border-left: 2px solid var(--neon-purple); padding-left: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+                        <h4 style="color: var(--white); font-size: 1rem;">Bachelor of Science in Information Technology</h4>
+                        <span style="color: var(--neon-purple); font-size: 0.8rem; font-weight: 600;">2021 – Present</span>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--soft-lavender);">Southville International School and Colleges – Philippines</p>
+                    <p style="font-size: 0.8rem; color: var(--neon-purple); font-weight: 600; margin-top: 5px;">Specialization: Artificial Intelligence / Machine Learning</p>
+                    <p style="font-size: 0.85rem; color: #fff; font-style: italic; font-weight: bold; margin: 5px 0;">
+                        Academic Distinction: <span style="color: gold;">Magna C&#117;m Laude</span>
+                    </p>
+                   
+                    <div style="margin-top: 15px; background: rgba(255,255,255,0.02); padding: 15px; border-radius: 10px; border: 1px solid var(--glass-border);">
+                        <p style="font-size: 0.85rem; color: var(--soft-lavender); font-weight: 600; margin-bottom: 8px;">Relevant coursework and certifications include:</p>
+                        <ul style="font-size: 0.8rem; line-height: 1.7; color: #ccc; padding-left: 18px; list-style-type: square;">
+                            <li>Machine Learning & Deep Learning Fundamentals</li>
+                            <li>Data Analytics and Data Visualization</li>
+                            <li>Database Management (SQL)</li>
+                            <li>Object-Oriented Programming (C#, Java)</li>
+                            <li>Web Development (HTML, CSS, JavaScript)</li>
+                            <li>Introductory Cloud Computing & MLOps Concepts</li>
+                            <li>Completed multiple AI/ML and software development projects aligned with industry practices</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="border-left: 2px solid rgba(188, 19, 254, 0.3); padding-left: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+                        <h4 style="color: var(--white); font-size: 1rem;">Senior High School</h4>
+                        <span style="color: var(--neon-purple); font-size: 0.8rem; font-weight: 600;">Graduated 2017</span>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--soft-lavender); margin-bottom: 5px;">
+                        Saint Joseph Academy – Philippines <br> Strand: STEM (Science, Technology, Engineering and Mathematics)
+                    </p>
+                    <p style="font-size: 0.85rem; color: #fff; font-style: italic; font-weight: bold; margin: 0;">
+                        Academic Award: <span style="color: gold; font-style: italic; font-weight: bold;">High Honors</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="cover-letter">
+            <div class="glass-card" style="max-width: 800px; margin: auto;">
+                <p><strong>Yuan Miguel V. Mendoza</strong><br> BLK 2A Lot 1 Venezia Subdivision<br> Las Piñas City, Metro Manila</p>
+                <p> </p>
+                <br/>
+                <p>January 21, 2026</p>
+                <br>
+                <p><strong> Human Resources Department </strong><br>Yondu Inc.<br> Bonifacio Global City <br> Taguig, Metro Manila</p>
+                <br>
+                <p>Attention: Hiring Manager</p>
+                <br>
+                <p>Dear Ma'am/Sir,</p>
+                <p>  </p>
+                <br>
+                <p style="text-align: justify; line-height: 1.8; font-size: 0.95rem;">I am writing to apply for the AI Engineer position, specifically the LLM Model Build role at Yondu Inc. As a subsidiary of Globe Telecom, Yondu's commitment to delivering innovative, scalable AI solutions in the telecommunications sector resonates deeply with my passion for building production-ready AI systems that create measurable business impact. With hands-on experience in artificial intelligence and machine learning, I am confident in my ability to contribute to your team's ongoing innovation and enterprise AI initiatives.</p>
+                <p style="text-align: justify; line-height: 1.8; margin-top: 15px; font-size: 0.95rem;"> I have hands-on experience developing LLM-based systems, Retrieval-Augmented Generation (RAG) pipelines, and machine learning models used for automation, incident analysis, and operational efficiency. In my recent work, I successfully reduced root cause analysis time by 70% through a RAG pipeline that processes unstructured system logs—directly demonstrating my ability to deliver the production-grade LLM systems and MLOps workflows outlined in your job requirements. My background includes prompt engineering, embeddings, vector databases, and integrating AI solutions into production environments while following responsible AI practices.</p>
+                <br>
+                <p style="text-align: justify; line-height: 1.8; font-size: 0.95rem;">Yondu's commitment to delivering impactful technology solutions strongly aligns with my professional goals. I am eager to apply my technical skills, collaborate with cross-functional teams, and contribute to the success of your AI-driven projects. I would welcome the opportunity to discuss how my experience aligns with your needs and am available for an interview at your convenience. I can be reached at 09193828957 or yuanmiguelvmendoza@gmail.com.</p>
+                <br>
+                <p style="text-align: justify; line-height: 1.8; font-size: 0.95rem;">Thank you for your time and consideration. I look forward to the opportunity to discuss my application further.</p>
+                <br>
+                <p>Sincerely,</p>
+                <img src="https://i.imgur.com/OfJ9vV5.png" alt="Yuan Mendoza Signature" style="width: 200px; height: auto; margin: 10px 0 0 0; display: block;">
+                <p style="margin-top: -2px;"><strong>Yuan Mendoza</strong></p>
+                <p><strong>AI Engineer | LLM & Machine Learning Specialist</strong></p>
+                <br>
+                <p> Enclosure: Resume </p>
+                <br>
+                <p> CC: Human Resources Department</p>
+            </div>
+        </section>
+
+        <section id="videos">
+            <div class="glass-card">
+                <h2 style="color: var(--neon-purple); margin-bottom: 20px;">Video Introduction</h2>
+                <a href="https://youtu.be/SnnpCcpl0rQ" target="_blank" style="display: block; position: relative; text-decoration: none;">
+                    <div style="width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, #302b63 0%, #0f0c29 100%); border-radius: 20px; overflow: hidden; border: 1px solid var(--neon-purple); display: flex; align-items: center; justify-content: center; position: relative;">
+                        <img src="https://img.youtube.com/vi/SnnpCcpl0rQ/maxresdefault.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
+                        <div style="position: absolute; width: 80px; height: 80px; background: rgba(188, 19, 254, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 30px var(--purple-glow);">
+                            <span style="font-size: 2.5rem; margin-left: 5px;">▶</span>
+                        </div>
+                    </div>
+                    <p style="text-align: center; margin-top: 15px; font-size: 0.9rem; color: var(--neon-purple); font-weight: 600;">
+                        ▶ Click to Watch Video Introduction on YouTube
+                    </p>
+                </a>
+            </div>
+        </section>
+
+        <section id="ai-declaration">
+            <div class="glass-card" style="text-align: center;">
+                <h2 style="color: var(--neon-purple); margin-bottom: 20px;">AI and Platform Use Declaration</h2>
+                
+                <div style="text-align: left;">
+                    <h3 style="color: #fff; font-size: 1.1rem; margin-top: 10px;">Generative AI Integration (Gemini, ChatGPT, Claude)</h3>
+                    <p style="line-height: 1.6; color: #ccc;">Generative AI was utilized to enhance the technical and professional quality of this portfolio through:</p>
+                    <ul style="margin: 15px 25px; line-height: 1.8; color: var(--soft-lavender);">
+                        <li><strong>Code Architecture:</strong> Designing the Glassmorphism UI, CSS animations, and bento-grid layouts (Gemini & Claude).</li>
+                        <li><strong>Content Refinement:</strong> Grammar checking, tone refinement, and clarity improvements for the resume and cover letter (ChatGPT).</li>
+                        <li><strong>Technical Logic:</strong> Debugging code, reviewing JavaScript logic, and technical refinements (Claude).</li>
+                    </ul>
+
+                    <hr style="border: 0; border-top: 1px solid rgba(188, 19, 254, 0.2); margin: 20px 0;">
+
+                    <h3 style="color: #fff; font-size: 1.1rem;">Media & Platform Tools</h3>
+                    <ul style="margin: 15px 25px; line-height: 1.8; color: var(--soft-lavender);">
+                        <li><strong>CapCut:</strong> Visual editing, transitions, and enhancements for the video introduction.</li>
+                        <li><strong>YouTube:</strong> Hosting and embedding platform for video accessibility.</li>
+                        <li><strong>Course Materials:</strong> Writing I course slides were used to ensure all documents meet professional standards.</li>
+                    </ul>
+                </div>
+
+                <div style="margin: 30px auto 10px; padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 16px; border: 1px solid var(--glass-border); max-width: 450px; text-align: center;">
+                    <p style="color: var(--soft-lavender); font-size: 0.9rem; margin-bottom: 15px;">
+                        <strong>Verification Link:</strong> View the raw source code used to build this portfolio on PasteCode.io
+                    </p>
+                    
+                    <a href="https://pastecode.io/s/1wd07m5f" target="_blank" style="display: inline-block; color: var(--neon-purple); text-decoration: none; font-weight: 600; border: 1px solid var(--neon-purple); padding: 10px 24px; border-radius: 30px; transition: 0.3s; background: rgba(188, 19, 254, 0.05);">
+                        🔗 Open Source Code Preview
+                    </a>
+                </div>
+
+                <div style="margin: 10px auto 20px; padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 16px; border: 1px solid var(--glass-border); max-width: 450px; text-align: center;">
+                    <p style="color: var(--soft-lavender); font-size: 0.9rem; margin-bottom: 15px;">
+                        <strong>Project Documentation:</strong> Access the full gallery of project screenshots and process images on Google Drive.
+                    </p>
+                    
+                    <a href="https://drive.google.com/drive/folders/1NBypjE1lOycJBTi8wO17j_bfzqRH4wNj?usp=sharing" target="_blank" rel="noopener noreferrer" style="display: inline-block; color: gold; text-decoration: none; font-weight: 600; border: 1px solid gold; padding: 10px 24px; border-radius: 30px; transition: 0.3s; background: rgba(255, 215, 0, 0.05);">
+                        🖼️ View Project Photos (Opens in New Tab)
+                    </a>
+                </div>
+
+                <p style="font-size: 0.85rem; color: #888; font-style: italic; margin-top: 20px;">
+                    *I confirm that all AI-assisted content has been reviewed and edited for accuracy; the final output reflects my own professional capabilities and work.
+                </p>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 style="color: var(--neon-purple); margin-bottom: 30px; text-align: center; font-size: 2.5rem;">About Me</h2>
+            
+            <div class="glass-card" style="margin-bottom: 30px;">
+                <div style="display: grid; grid-template-columns: 350px 1fr; gap: 40px; align-items: center;">
+                    <div style="text-align: center;">
+                        <div style="width: 250px; height: 250px; border: 3px solid var(--neon-purple); border-radius: 50%; margin: 0 auto 20px; box-shadow: 0 0 30px var(--purple-glow); overflow: hidden; background: linear-gradient(135deg, #302b63 0%, #0f0c29 100%);">
+                            <img src="https://i.imgur.com/xEVyRzE.png" alt="Yuan Mendoza" style="width: 100%; height: 100%; object-fit: cover;margin-left: 10px;">
+                        </div>
+                      
+                        <h3 style="color: gold; margin-bottom: 5px; font-size: 1.2rem;">Magna C&#117;m Laude</h3>
+                        <p style="font-size: 0.85rem; color: var(--soft-lavender); margin-bottom: 20px;">BS Information Technology</p>
+                        
+                        <div style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 15px; border: 1px solid var(--glass-border); text-align: left;">
+                            <h4 style="color: var(--neon-purple); font-size: 0.9rem; margin-bottom: 10px; text-align: center;">⚡ Quick Stats</h4>
+                            <div style="font-size: 0.8rem; line-height: 2; color: #ccc;">
+                                <p>📍 <strong>Location:</strong> Taguig, PH</p>
+                                <p>🎓 <strong>Specialization:</strong> AI/ML</p>
+                                <p>💼 <strong>Status:</strong> Open to Innovation</p>
+                                <p>🚀 <strong>Focus:</strong> LLMs & RAG Systems</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 style="color: var(--neon-purple); margin-bottom: 15px; font-size: 1.8rem;">The Logic & The Passion</h2>
+                        <p style="line-height: 1.8; color: #ccc; margin-bottom: 15px; text-align: justify;">
+                            My journey into AI Engineering began with a fascination for how data can predict human behavior and solve real-world problems. From my STEM foundation in high school to graduating <strong style="color: gold;">Magna C&#117;m Laude</strong> in Information Technology, I've built a rigorous technical foundation in problem-solving, algorithm design, and system architecture.
+                        </p>
+                        <p style="line-height: 1.8; color: #ccc; margin-bottom: 20px; text-align: justify;">
+                            What drives me is the intersection of <strong style="color: var(--neon-purple);">complex algorithmic logic</strong> and <strong style="color: var(--neon-purple);">intuitive user experiences</strong>. I specialize in Large Language Models, RAG pipelines, and responsible AI practices—always asking not just "Can we build this?" but "Should we, and how can we do it ethically?"
+                        </p>
+
+                        <div style="background: rgba(188, 19, 254, 0.05); padding: 15px; border-radius: 15px; border: 1px solid var(--neon-purple);">
+                            <p style="font-size: 0.85rem; color: var(--soft-lavender); font-style: italic; margin: 0;">
+                                💡 "I bridge the gap between cutting-edge AI research and production-ready solutions that deliver measurable business value."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--white); margin-bottom: 20px; font-size: 1.5rem; text-align: center;">Core Competencies & Values</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px;">
+                <div class="glass-card" style="padding: 25px; text-align: center; transition: 0.3s;">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">🧠</div>
+                    <h4 style="color: var(--neon-purple); margin-bottom: 10px;">Problem Solver</h4>
+                    <p style="font-size: 0.8rem; color: #ccc; line-height: 1.6;">Breaking down complex challenges into actionable, scalable solutions through systematic analysis.</p>
+                </div>
+
+                <div class="glass-card" style="padding: 25px; text-align: center; transition: 0.3s;">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">⚖️</div>
+                    <h4 style="color: var(--neon-purple); margin-bottom: 10px;">Ethical AI Advocate</h4>
+                    <p style="font-size: 0.8rem; color: #ccc; line-height: 1.6;">Committed to responsible AI development with transparency, fairness, and user privacy at the core.</p>
+                </div>
+
+                <div class="glass-card" style="padding: 25px; text-align: center; transition: 0.3s;">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">🎯</div>
+                    <h4 style="color: var(--neon-purple); margin-bottom: 10px;">Strategic Thinker</h4>
+                    <p style="font-size: 0.8rem; color: #ccc; line-height: 1.6;">Aligning technical implementations with business objectives and long-term organizational goals.</p>
+                </div>
+
+                <div class="glass-card" style="padding: 25px; text-align: center; transition: 0.3s;">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">🤝</div>
+                    <h4 style="color: var(--neon-purple); margin-bottom: 10px;">Team Collaborator</h4>
+                    <p style="font-size: 0.8rem; color: #ccc; line-height: 1.6;">Effective cross-functional communication with engineers, product managers, and stakeholders.</p>
+                </div>
+
+                <div class="glass-card" style="padding: 25px; text-align: center; transition: 0.3s;">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">📚</div>
+                    <h4 style="color: var(--neon-purple); margin-bottom: 10px;">Continuous Learner</h4>
+                    <p style="font-size: 0.8rem; color: #ccc; line-height: 1.6;">Staying ahead of rapidly evolving AI technologies through research, experimentation, and implementation.</p>
+                </div>
+
+                <div class="glass-card" style="padding: 25px; text-align: center; transition: 0.3s;">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">⚡</div>
+                    <h4 style="color: var(--neon-purple); margin-bottom: 10px;">Results-Driven</h4>
+                    <p style="font-size: 0.8rem; color: #ccc; line-height: 1.6;">Focused on delivering production-ready solutions that create measurable impact and business value.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').replace('#', '');
+                   
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    sections.forEach(s => s.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                    }
+
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            const blob = document.querySelector('.blob');
+            blob.style.left = e.clientX + 'px';
+            blob.style.top = e.clientY + 'px';
+        });
+
+        function moveCarousel(direction) {
+            const container = document.getElementById('carousel-container');
+            const scrollAmount = 420; // Width of card + gap
+            container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+        const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+const links = document.querySelectorAll('.nav-link');
+
+/* Toggle menu */
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+});
+
+/* Navigation */
+links.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+
+    links.forEach(l => l.classList.remove('active'));
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+
+    link.classList.add('active');
+    document.getElementById(link.getAttribute('href').substring(1)).classList.add('active');
+
+    navLinks.classList.remove('show'); // close menu on mobile
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+    </script>
+    
+</body>
+</html>
